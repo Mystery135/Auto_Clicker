@@ -12,7 +12,7 @@ public AutoClicker(){
         e.printStackTrace();
 
     }
-   delay = 300;
+
 
 
 }
