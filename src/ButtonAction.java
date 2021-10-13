@@ -1,11 +1,14 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class ButtonAction implements ActionListener {
+
+   public static boolean stopButtonPressed = false;
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -46,12 +49,18 @@ public class ButtonAction implements ActionListener {
                         timer.cancel();
                         AutoClicker clicker = new AutoClicker();
                         clicker.setDelay(delay);
-                        for (int i = 0; i<clicks; i++){
+
+                        if(!stopButtonPressed){
+
+                            for (int i = 0; i<clicks; i++){
 
 
 
-                            clicker.clickMouse(InputEvent.BUTTON1_DOWN_MASK);
+                                clicker.clickMouse(InputEvent.BUTTON1_DOWN_MASK);
+                            }
+
                         }
+
 
                   Main.SuccessLabel.setText("AutoClicker Complete!");
 
@@ -67,10 +76,34 @@ System.out.println("AutoClicker Complete!");
 
 
             ex.printStackTrace();
+            Main.SuccessLabel.setText("AutoClicker Failed! Input Valid Numbers!");
+
+
+
+
+
+
+
+
+
         }
 
 
 
 
     }
+
+
+
+    public void keyPressed(KeyEvent evt) {
+
+
+        int key = evt.getKeyCode();
+
+        if (key == KeyEvent.VK_ESCAPE) {
+
+        }
+    }
+
+
 }

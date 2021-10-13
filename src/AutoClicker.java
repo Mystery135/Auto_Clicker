@@ -20,7 +20,7 @@ public AutoClicker(){
 public void clickMouse(int button){
     try {
         robot.mousePress(button);
-        robot.delay(250);//sleep for x milliseconds
+
         robot.mouseRelease(button);
         robot.delay(delay);
 
