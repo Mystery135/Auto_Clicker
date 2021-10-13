@@ -2,7 +2,9 @@
   <artifact type="jar" name="Auto Clicker:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Auto_Clicker_jar</output-path>
     <root id="archive" name="Auto Clicker.jar">
-      <element id="module-output" name="Auto Clicker" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      </element>
     </root>
   </artifact>
 </component>

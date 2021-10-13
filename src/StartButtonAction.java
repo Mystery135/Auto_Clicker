@@ -1,25 +1,16 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
-import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class ButtonAction implements ActionListener {
+public class StartButtonAction implements ActionListener {
 
    public static boolean stopButtonPressed = false;
     @Override
     public void actionPerformed(ActionEvent e) {
 
-
-
-
-
-
-
-
-
+stopButtonPressed = false;
 
 
 
@@ -44,27 +35,50 @@ public class ButtonAction implements ActionListener {
                     time--;
 
 
-                    if (time<0){
+                    if (time<0 && !stopButtonPressed){
 
                         timer.cancel();
                         AutoClicker clicker = new AutoClicker();
                         clicker.setDelay(delay);
 
-                        if(!stopButtonPressed){
+
 
                             for (int i = 0; i<clicks; i++){
 
+                                if(!stopButtonPressed){
+
+                                    clicker.clickMouse(InputEvent.BUTTON1_DOWN_MASK);
 
 
-                                clicker.clickMouse(InputEvent.BUTTON1_DOWN_MASK);
+
+
+                                }else {
+
+                                    System.out.println("AutoClicker Stopped");
+                                    Main.SuccessLabel.setText("AutoClicker Stopped!");
+                                    timer.cancel();
+                                    break;
+                                }
+
+
+
+
+
+
+
                             }
 
-                        }
+
 
 
                   Main.SuccessLabel.setText("AutoClicker Complete!");
 
 System.out.println("AutoClicker Complete!");
+                    }else if (stopButtonPressed){
+                        System.out.println("AutoClicker Stopped");
+                        Main.SuccessLabel.setText("AutoClicker Stopped!");
+                        timer.cancel();
+
                     }
                 }
             };
@@ -93,17 +107,6 @@ System.out.println("AutoClicker Complete!");
 
     }
 
-
-
-    public void keyPressed(KeyEvent evt) {
-
-
-        int key = evt.getKeyCode();
-
-        if (key == KeyEvent.VK_ESCAPE) {
-
-        }
-    }
 
 
 }

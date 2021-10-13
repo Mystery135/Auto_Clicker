@@ -1,12 +1,5 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.InputEvent;
-import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Main{
       static JLabel AmountOfClicksLabel;
@@ -15,6 +8,7 @@ public class Main{
      static JTextField TimeBetweenClicksInput;
       static JTextField AmountOfClicksInput;
      static JButton startButton;
+    static JButton stopButton;
     public Main(){
 
         JFrame frame = new JFrame();
@@ -36,8 +30,14 @@ TimeBetweenClicksLabel.setBounds(10,100,800,25);
         TimeBetweenClicksInput.setBounds(10,130,165,25);
 
         startButton = new JButton("Start!");
-        startButton.addActionListener(new ButtonAction());
+        startButton.addActionListener(new StartButtonAction());
         startButton.setBounds(10,170,80,25);
+
+        stopButton = new JButton("Stop!");
+        stopButton.addActionListener(new StopButtonAction());
+        stopButton.setBounds(90,170,80,25);
+        stopButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 
         startButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 SuccessLabel = new JLabel("");
@@ -46,19 +46,46 @@ SuccessLabel.setBounds(10,220,800,25);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.add(panel);
+
+        frame.addKeyListener(new StopKeyListener());
+        panel.addKeyListener(new StopKeyListener());
+
+
+
         panel.add(SuccessLabel);
         panel.add(startButton);
         panel.add(TimeBetweenClicksLabel);
         panel.add(AmountOfClicksInput);
         panel.add(TimeBetweenClicksInput);
+        panel.add(stopButton);
 
     panel.add(AmountOfClicksLabel);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
 
 
-public static void main(String[] args) {
+
+
+
+
+    public static void main(String[] args) {
 
     new Main();
 
