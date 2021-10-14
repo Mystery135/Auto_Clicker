@@ -31,9 +31,18 @@ stopButtonPressed = false;
                 int time = 3;
                 @Override
                 public void run() {
-                    System.out.println(time);
-                    Main.SuccessLabel.setText("Auto Clicker Starting In "+ (time));
-                    time--;
+                    if (time>0){
+
+                        System.out.println(time);
+                        Main.SuccessLabel.setText("Auto Clicker Starting In "+ (time));
+                        time--;
+                    }else{
+                        System.out.println("Auto Clicker Enabled");
+
+                        Main.SuccessLabel.setText("Auto Clicker Started!");
+                        time--;
+                    }
+
 
 
                     if (time<0 && !stopButtonPressed){

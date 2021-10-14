@@ -10,10 +10,10 @@ public class Main{
      static JButton startButton;
     static JButton stopButton;
     public Main(){
-
-        JFrame frame = new JFrame();
+double version = 0.32;
+        JFrame frame = new JFrame("Auto Clicker v." + version);
         JPanel panel = new JPanel();
-    frame.setSize(500,500);
+    frame.setSize(300,300);
 
 
     panel.setLayout(null);
