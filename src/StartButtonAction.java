@@ -1,3 +1,4 @@
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
@@ -14,9 +15,9 @@ stopButtonPressed = false;
 
 
 
-        int clicks = Integer.parseInt( Main.AmountOfClicksInput.getText());
+        int clicks = Integer.parseInt(Main.AmountOfClicksInput.getText());
 
-        int delay = Integer.parseInt( Main.TimeBetweenClicksInput.getText());
+        int delay = Integer.parseInt(Main.TimeBetweenClicksInput.getText());
 
 
         System.out.println("Program will start in 3 seconds");
